@@ -20,12 +20,14 @@ def help(update: Update, context: CallbackContext):
     /youtube - To get the youtube URL
     /linkedin - To get the LinkedIn profile URL
     /Connect - To get connect form URL
-    /github - To get the Github URL""")
+    /github - To get the Github URL
+    /facebook - To get connect link facebook
+    /Internship - To apply for Internship """)
   
   
 def konect_url(update: Update, context: CallbackContext):
     update.message.reply_text(
-        "please find us & fill in details to helps us connect you https://digipodium.com/web/contact/)")
+        "find are physical coordinates & fill in detailsto helps us connect you https://digipodium.com/web/contact/)")
   
   
 def youtube_url(update: Update, context: CallbackContext):
@@ -43,7 +45,18 @@ def github_url(update: Update, context: CallbackContext):
     update.message.reply_text(
         "github URL => \
              https://github.com/digipodium")
-  
+
+
+def fb_url(update: Update, context: CallbackContext):
+    update.message.reply_text(
+        "facebook connect URL => \
+             https://www.facebook.com/digipodium")
+
+
+def internship_url(update: Update, context: CallbackContext):
+    update.message.reply_text(
+        "fill in the details to apply for intership => \
+             https://docs.google.com/forms/d/e/1FAIpQLSfeIKNSUgx7d702Tt-5R9rFXpDasOHaEcdKNsiVQbKRSVW9vA/viewform")
   
 def unknown(update: Update, context: CallbackContext):
     update.message.reply_text(
@@ -61,6 +74,8 @@ updater.dispatcher.add_handler(CommandHandler('help', help))
 updater.dispatcher.add_handler(CommandHandler('linkedin', linkedIn_url))
 updater.dispatcher.add_handler(CommandHandler('connect', konect_url))
 updater.dispatcher.add_handler(CommandHandler('github', github_url))
+updater.dispatcher.add_handler(CommandHandler('facebook', fb_url))
+updater.dispatcher.add_handler(CommandHandler('Internship', internship_url))
 updater.dispatcher.add_handler(MessageHandler(Filters.text, unknown))
 updater.dispatcher.add_handler(MessageHandler(
     Filters.command, unknown))  # Filters out unknown commands
